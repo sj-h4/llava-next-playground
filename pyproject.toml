@@ -1,0 +1,38 @@
+[project]
+name = "llava-next-playground"
+version = "0.1.0"
+description = "Add your description here"
+authors = [{ name = "sj", email = "64534668+sj-h4@users.noreply.github.com" }]
+dependencies = [
+    "transformers>=4.41.2",
+    "opencv-python>=4.10.0.84",
+    "pillow>=10.3.0",
+    "sentencepiece>=0.2.0",
+    "torch>=2.3.1",
+    "llava @ git+https://github.com/sj-h4/LLaVA-NeXT.git@fix/remove-unused-import",
+    "torchvision>=0.18.1",
+    "peft>=0.11.1",
+    "setuptools>=70.1.1",
+    "einops>=0.8.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+"main" = "llava_next_playground:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "mypy>=1.10.1",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llava_next_playground"]
