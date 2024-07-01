@@ -27,6 +27,7 @@ def sample_frames(video_file_name: str, num_frames: int):
     """
     video = cv2.VideoCapture(video_file_name)
     total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+    num_frames = min(num_frames, total_frames)  # total_framesよりもnum_framesが多い場合は動画内の全フレームを使うようにする
     interval = total_frames // num_frames
     frames = []
     for i in range(total_frames):
